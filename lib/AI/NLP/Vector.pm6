@@ -2,7 +2,19 @@ use v6.c;
 
 class AI::NLP::Vector {
 
-	submethod BUILD() { 
+	has @!vl;
+
+	submethod BUILD(:$nrows) {
+	      loop (my $i = 0; $i < $nrows; $i++) {
+	      	push(self.vl, 1e6.rand);
+		}	
 	}
 
+	method getSize() { return self.vl.elems; }
+	method put($idx, $value) {
+		self.vl[$idx] = $value;
+	}
+	method get($idx) {
+		return self.vl[$idx];
+	}
 }
