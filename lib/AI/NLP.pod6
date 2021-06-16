@@ -1,0 +1,7 @@
+=begin AI-NLP
+
+=head1 Description
+
+Natural Language Processing system, written with IRC bots in mind.
+ 
+=end
