@@ -10,6 +10,24 @@ class AI::NLP::Vector {
 		}	
 	}
 
+	method multiplyByVector($v) {
+	      my $returnvalue = 0.0;
+	      loop (my $i = 0; $i < $v.getSize; $i++) {
+		$returnvalue += self.vl[$i] * $v.get($i);
+	      }
+
+		return $returnvalue;
+	}
+
+	method addVector($v) {
+	      my $returnv = AI::NLP::Vector.new($v.getSize);;
+	      loop (my $i = 0; $i < $v.getSize; $i++) {
+		$returnv.put($i, self.vl[$i] + $v.get($i));
+	      }
+
+	      return $returnv;
+	}
+
 	method getSize() { return self.vl.elems; }
 	method put($idx, $value) {
 		self.vl[$idx] = $value;
