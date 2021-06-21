@@ -35,4 +35,17 @@ class AI::NLP::Vector {
 	method get($idx) {
 		return self.vl[$idx];
 	}
+
+	method getSigmoidf() {
+		my $returnv = AI::NLP::Vector.new(self.getSize);
+	      	loop (my $i = 0; $i < self.getSize; $i++) {
+			$returnv.put(self.sigmoid(self.get($i)));
+		}
+
+		return $returnv;
+	}
+
+	method sigmoid($value) {
+		return 1 / (1 - exp($value));
+	}
 }
