@@ -3,12 +3,13 @@
         "name" : "AI::NLP",
         "auth" : "CPAN:HOLYGHOST",
         "api" : "1",
-        "version" : "0.1.1",
+        "version" : "0.1.2",
         "description" : "Wave (WAV) Sound system with pattern recognition",
         "authors" : [ "The Holy Ghost" ],
         "license" : "General Public License 3, Artistic-2.0",
         "provides" : {
             "AI::NLP::Matrix" : "lib/AI/NLP/Matrix.pm6",
+            "AI::NLP::BPPNet" : "lib/AI/NLP/BPPNet.pm6",
             "AI::NLP::Vector" : "lib/AI/NLP/Vector.pm6"
         },
         "depends" : [ ],
@@ -18,5 +19,5 @@
         "tags": [
           "AI", "NLP"
         ],
-        "source-url" : "http://cpan.metacpan.org/authors/id/H/HO/HOLYGHOST/Perl6/AI-NLP-0.1.1.tar.gz"
+        "source-url" : "http://cpan.metacpan.org/authors/id/H/HO/HOLYGHOST/Perl6/AI-NLP-0.1.2.tar.gz"
     }
