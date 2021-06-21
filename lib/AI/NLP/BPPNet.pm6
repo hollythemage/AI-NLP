@@ -19,8 +19,8 @@ class AI::NLP::BPPNet {
 		self.hidden = AI::NLP::Vector.new($hn);	
 		self.output = AI::NLP::Vector.new($on);
 
-		self.W1 = AI::NLP::Matrix.new($in, $hn);	
-		self.W2 = AI::NLP::Matrix.new($hn, $on);	
+		self.W1 = AI::NLP::Matrix.new($hn, $in);	
+		self.W2 = AI::NLP::Matrix.new($on, $hn);	
 	}
 
 	multi method forwardPass() {
