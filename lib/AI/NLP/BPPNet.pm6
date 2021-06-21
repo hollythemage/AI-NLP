@@ -26,10 +26,20 @@ class AI::NLP::BPPNet {
 	multi method forwardPass($inputv) {
 		self.input = $inputv;
 
-		my $activationv1 = self.input.getSigmoidf;
-		my $hiddenv = self.W1.multiplyByVector($activationv1);
-		my $activationv2 = $hiddenv.getSigmoidf;
+		my $activationv1 = AI::NLP::Vector.new(self.hidden.getSize);
+		loop (my $i = 0; $i < self.hidden.getSize; $i++) { ## hidden size
+			$activationv1[$i] = self.input.sumMembers;
+		}
+		$activationv1 = $activationv1.getSigmoidf;
 
+		self.hidden = self.W1.multiplyByVector($activationv1);
+
+		my $activationv2 = AI::NLP::Vector.new(self.output.getSize);
+		loop (my $j = 0; $j < self.output.getSize; $j++) { ## output size
+			$activationv2[$j] = self.W1.sumMembers($j);
+		}
+		$activationv2 = $activationv2.getSigmoidf;
+		
 		my $outputv = self.W2.multiplyByVector($activationv2);
 			
 		self.output = $outputv;

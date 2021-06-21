@@ -46,6 +46,17 @@ class AI::NLP::Vector {
 	}
 
 	method sigmoid($value) {
-		return 1 / (1 - exp($value));
+		return 1 / (1 + exp(- $value));
 	}
+
+	method sumMembers() {
+		my $sum = 0.0;
+		loop (my $i = 0; $i < self.getSize; $i++) {
+			$sum += self.get($i);
+		}
+
+		return $sum;
+	}
+
+
 }

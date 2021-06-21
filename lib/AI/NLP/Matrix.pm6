@@ -72,4 +72,11 @@ class AI::NLP::Matrix {
 		}
 	}
 
+	method sumMembers($rownumber) {
+		my $sum = 0.0;
+		loop (my $i = 0; $i < self.ml[0].elems; $i++) {
+			$sum += self.ml[$rownumber][$i];
+		}
+		return $sum;
+	}
 }
