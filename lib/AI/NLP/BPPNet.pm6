@@ -42,7 +42,7 @@ class AI::NLP::BPPNet {
 		loop (my $j = 0; $j < self.output.getSize; $j++) { ## output size
 			$activationv2[$j] = self.hidden.sumMembers;
 		}
-		$activationv2 = $activationv2.getSigmoidf($learning-rate);
+		$activationv2 = $activationv2.getSigmoidf(self.learning-rate);
 
 		my $outputv = self.W2.multiplyByVector($activationv2);
 			
