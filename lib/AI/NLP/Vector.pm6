@@ -36,10 +36,10 @@ class AI::NLP::Vector {
 		return self.vl[$idx];
 	}
 
-	method getSigmoidf() {
+	method getSigmoidf($alpha) { ### alpha === learning rate
 		my $returnv = AI::NLP::Vector.new(self.getSize);
 	      	loop (my $i = 0; $i < self.getSize; $i++) {
-			$returnv.put(self.sigmoid(self.get($i)));
+			$returnv.put(self.sigmoid($alpha * self.get($i)));
 		}
 
 		return $returnv;
