@@ -36,10 +36,10 @@ class AI::NLP::BPPNet {
 
 		my $activationv2 = AI::NLP::Vector.new(self.output.getSize);
 		loop (my $j = 0; $j < self.output.getSize; $j++) { ## output size
-			$activationv2[$j] = self.W1.sumMembers($j);
+			$activationv2[$j] = self.hidden.sumMembers;
 		}
 		$activationv2 = $activationv2.getSigmoidf;
-		
+
 		my $outputv = self.W2.multiplyByVector($activationv2);
 			
 		self.output = $outputv;
