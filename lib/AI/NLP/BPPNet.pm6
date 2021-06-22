@@ -14,13 +14,17 @@ class AI::NLP::BPPNet {
 	has $!W1; 
 	has $!W2; 
 
+	has $!learning-rate;
+
 	submethod BUILD(:$in, :$hn, :$on) {
 		self.input = AI::NLP::Vector.new($in);	
 		self.hidden = AI::NLP::Vector.new($hn);	
 		self.output = AI::NLP::Vector.new($on);
 
 		self.W1 = AI::NLP::Matrix.new($hn, $in);	
-		self.W2 = AI::NLP::Matrix.new($on, $hn);	
+		self.W2 = AI::NLP::Matrix.new($on, $hn);
+
+		self.learning-rate = 0.5;	
 	}
 
 	multi method forwardPass($inputv) {
